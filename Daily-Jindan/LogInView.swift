@@ -20,10 +20,13 @@ class LogInView: UIViewController{
     let password = UITextField()
     let toEnter = UIButton()
     
+    let secondView = nextView()
+    
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         /*if Auth.auth().currentUser != nil {
             userName.placeholder = "이미 로그인 된 상태입니다."
@@ -51,7 +54,7 @@ class LogInView: UIViewController{
         }
         
         
-        logo.text = "Login Test"
+        logo.text = "LogIn Test"
         view.addSubview(logo)
         logo.textColor = .white
         logo.font = UIFont(name: "Helvetica-Bold", size: 42)
@@ -131,6 +134,9 @@ class LogInView: UIViewController{
         Auth.auth().signIn(withEmail: userName.text!, password: password.text!) { (user, error) in
                     if user != nil{
                         print("login success")
+                        self.secondView.modalPresentationStyle = .fullScreen
+                        self.secondView.modalTransitionStyle = .crossDissolve
+                        self.present(self.secondView, animated: true, completion: nil)
                     }
                     else{
                         print("login fail")
@@ -143,6 +149,8 @@ class LogInView: UIViewController{
             }
         }
     };
+    
+    
 }
 
 extension UITextField {

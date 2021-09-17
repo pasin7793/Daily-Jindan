@@ -15,6 +15,7 @@
 		C8CFE9CA26F318A900323741 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CFE9C926F318A900323741 /* LogInView.swift */; };
 		C8CFE9CC26F35D1D00323741 /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = C8CFE9CB26F35D1D00323741 /* BMJUA_otf.otf */; };
 		C8CFE9CE26F38E9700323741 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8CFE9CD26F38E9700323741 /* GoogleService-Info.plist */; };
+		C8CFE9D226F4646D00323741 /* nextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CFE9D126F4646D00323741 /* nextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C8CFE9C926F318A900323741 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		C8CFE9CB26F35D1D00323741 /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
 		C8CFE9CD26F38E9700323741 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C8CFE9D126F4646D00323741 /* nextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nextView.swift; sourceTree = "<group>"; };
 		DC1557BB4A232089D163F87A /* Pods-Daily-Jindan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily-Jindan.debug.xcconfig"; path = "Target Support Files/Pods-Daily-Jindan/Pods-Daily-Jindan.debug.xcconfig"; sourceTree = "<group>"; };
 		E56EB55D60DBF76F61D56F10 /* Pods-Daily-Jindan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily-Jindan.release.xcconfig"; path = "Target Support Files/Pods-Daily-Jindan/Pods-Daily-Jindan.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +88,7 @@
 				C8CFE9B526F23A8E00323741 /* AppDelegate.swift */,
 				C8CFE9B726F23A8E00323741 /* SceneDelegate.swift */,
 				C8CFE9C926F318A900323741 /* LogInView.swift */,
+				C8CFE9D126F4646D00323741 /* nextView.swift */,
 				C8CFE9BE26F23A9000323741 /* Assets.xcassets */,
 				C8CFE9C026F23A9000323741 /* LaunchScreen.storyboard */,
 				C8CFE9C326F23A9000323741 /* Info.plist */,
@@ -212,6 +215,7 @@
 				C8CFE9CA26F318A900323741 /* LogInView.swift in Sources */,
 				C8CFE9B626F23A8E00323741 /* AppDelegate.swift in Sources */,
 				C8CFE9B826F23A8E00323741 /* SceneDelegate.swift in Sources */,
+				C8CFE9D226F4646D00323741 /* nextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
