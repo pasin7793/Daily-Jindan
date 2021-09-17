@@ -19,8 +19,10 @@ class LogInView: UIViewController{
     let userName = UITextField()
     let password = UITextField()
     let toEnter = UIButton()
+    let forgotPassword = UIButton()
     
     let secondView = nextView()
+    let forgotView = ForgotPasswordView()
     
     var ref: DatabaseReference!
     
@@ -115,7 +117,6 @@ class LogInView: UIViewController{
         toEnter.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         toEnter.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20)
         toEnter.layer.cornerRadius = 25
-        toEnter.layer.masksToBounds = true
         toEnter.layer.shadowColor = UIColor.black.cgColor
         toEnter.layer.masksToBounds = false
         toEnter.layer.shadowOffset = CGSize(width: 0, height: 4)
@@ -129,7 +130,37 @@ class LogInView: UIViewController{
             make.height.equalTo(userName)
             make.width.equalTo(bound.width*0.48)
         }
+        view.addSubview(forgotPassword)
+        forgotPassword.backgroundColor = .none
+        forgotPassword.setTitle("Forgot Password?", for: .normal)
+        forgotPassword.setTitleColor(.white, for: .normal)
+        forgotPassword.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 17)
+        forgotPassword.layer.masksToBounds = true
+        forgotPassword.addTarget(self, action: #selector(buttonToPassword), for: .touchUpInside)
+        forgotPassword.snp.makeConstraints { make in
+            make.left.equalTo(bound.width*0.49)
+            make.top.equalTo(password.snp.bottom).offset(bound.height*0.02)
+
+            make.width.equalTo(bound.width*0.4)
+        }
     }
+    
+    @objc func buttonToPassword(_ button: UIButton){
+        print("ForgotPassword button clicked")
+        self.forgotView.modalPresentationStyle = .fullScreen
+        self.forgotView.modalTransitionStyle = .crossDissolve
+        self.present(self.forgotView, animated: true, completion: nil)
+        UIView.animate(withDuration: 1.5) {
+            button.setTitleColor(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), for: .normal)
+        };
+        UIView.animate(withDuration: 0.2) {
+            button.setTitleColor(.white, for: .normal)
+        }
+    }
+    
+    
+    
+    
     @objc func buttonClicked(_ button: UIButton){
         Auth.auth().signIn(withEmail: userName.text!, password: password.text!) { (user, error) in
                     if user != nil{
