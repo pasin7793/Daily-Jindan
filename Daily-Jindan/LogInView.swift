@@ -149,7 +149,7 @@ class LogInView: UINavigationController{
     @objc func buttonToPassword(_ button: UIButton){
         print("ForgotPassword button clicked")
         let rootVC = UIViewController()
-        rootVC.title = "Find Password!"
+        rootVC.title = "비밀번호 찾기"
         let navVC = ForgotPasswordView(rootViewController: rootVC)
         present(navVC, animated: true)
         rootVC.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로가기", style: .plain, target: self, action: #selector(dismissSelf))
@@ -182,6 +182,10 @@ class LogInView: UINavigationController{
                     }
                     else{
                         print("login fail")
+                        let alert = UIAlertController(title: "오류", message: "비밀번호 또는 아이디를 다시 입력해주새요.", preferredStyle: UIAlertController.Style.alert)
+                        let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
+                        alert.addAction(defaultAction)
+                        self.present(alert, animated: false, completion: nil)
                     }
             UIView.animate(withDuration: 1.5) {
                 button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
