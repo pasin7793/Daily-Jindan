@@ -133,16 +133,16 @@ class LogInView: UINavigationController{
         }
         view.addSubview(forgotPassword)
         forgotPassword.backgroundColor = .none
-        forgotPassword.setTitle("Forgot Password?", for: .normal)
+        forgotPassword.setTitle("비밀번호를 잊으셨나요?", for: .normal)
         forgotPassword.setTitleColor(.white, for: .normal)
         forgotPassword.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 17)
         forgotPassword.layer.masksToBounds = true
         forgotPassword.addTarget(self, action: #selector(buttonToPassword), for: .touchUpInside)
         forgotPassword.snp.makeConstraints { make in
-            make.left.equalTo(bound.width*0.49)
+            make.left.equalTo(bound.width*0.44)
             make.top.equalTo(password.snp.bottom).offset(bound.height*0.02)
 
-            make.width.equalTo(bound.width*0.4)
+            make.width.equalTo(bound.width*0.45)
         }
     }
     
