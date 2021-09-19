@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-class ForgotPasswordView: UIViewController{
+class ForgotPasswordView: UINavigationController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        view.backgroundColor = .white
     }
 }

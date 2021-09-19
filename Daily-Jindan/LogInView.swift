@@ -11,7 +11,7 @@ import Then
 import Firebase
 import FirebaseDatabase
 
-class LogInView: UIViewController{
+class LogInView: UINavigationController{
     
     let mainView = UIView()
     let bound = UIScreen.main.bounds
@@ -28,6 +28,7 @@ class LogInView: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
         /*if Auth.auth().currentUser != nil {
@@ -147,9 +148,12 @@ class LogInView: UIViewController{
     
     @objc func buttonToPassword(_ button: UIButton){
         print("ForgotPassword button clicked")
-        self.forgotView.modalPresentationStyle = .fullScreen
-        self.forgotView.modalTransitionStyle = .crossDissolve
-        self.present(self.forgotView, animated: true, completion: nil)
+        let rootVC = UIViewController()
+        rootVC.title = "Find Password!"
+        let navVC = ForgotPasswordView(rootViewController: rootVC)
+        present(navVC, animated: true)
+        rootVC.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로가기", style: .plain, target: self, action: #selector(dismissSelf))
+        rootVC.modalPresentationStyle = .fullScreen
         UIView.animate(withDuration: 1.5) {
             button.setTitleColor(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), for: .normal)
         };
@@ -157,7 +161,13 @@ class LogInView: UIViewController{
             button.setTitleColor(.white, for: .normal)
         }
     }
-    
+    @objc func dismissSelf(){
+        print("clicked dismiss button")
+        dismiss(animated: true, completion: nil)
+    }
+    //self.forgotView.modalPresentationStyle = .fullScreen
+    //self.forgotView.modalTransitionStyle = .crossDissolve
+    //self.present(self.forgotView, animated: true, completion: nil)
     
     
     
