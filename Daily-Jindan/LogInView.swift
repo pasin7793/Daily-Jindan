@@ -153,7 +153,8 @@ class LogInView: UINavigationController{
         let navVC = ForgotPasswordView(rootViewController: rootVC)
         present(navVC, animated: true)
         rootVC.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로가기", style: .plain, target: self, action: #selector(dismissSelf))
-        rootVC.modalPresentationStyle = .fullScreen
+        
+        
         UIView.animate(withDuration: 1.5) {
             button.setTitleColor(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), for: .normal)
         };
