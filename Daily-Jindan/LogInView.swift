@@ -80,7 +80,7 @@ class LogInView: UINavigationController{
         userName.layer.shadowOffset = CGSize(width: 0, height: 4)
         userName.layer.shadowRadius = 5
         userName.layer.shadowOpacity = 0.3
-        userName.setLeftPaddingPoints(30)
+        userName.setLeftPaddingPoints(40)
         view.addSubview(userName)
         userName.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -103,16 +103,24 @@ class LogInView: UINavigationController{
         password.layer.shadowOffset = CGSize(width: 0, height: 4)
         password.layer.shadowRadius = 5
         password.layer.shadowOpacity = 0.3
-        password.setLeftPaddingPoints(30)
-        
-        
-        
-        
+        password.setLeftPaddingPoints(40)
         view.addSubview(password)
         password.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(userName.snp.bottom).offset(bound.height*0.02)
             make.height.width.equalTo(userName)
+        }
+        passwordBtn.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
+        passwordBtn.backgroundColor = .white
+        passwordBtn.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+        passwordBtn.layer.cornerRadius = 10
+        passwordBtn.addTarget(self, action: #selector(eyeChange), for: .touchUpInside)
+        view.addSubview(passwordBtn)
+        passwordBtn.snp.makeConstraints { make in
+            make.left.equalTo(password).offset(bound.height*0.01)
+            make.top.equalTo(password).offset(bound.height*0.025)
+            make.width.equalTo(bound.width*0.07)
+            make.height.equalTo(bound.height*0.02)
         }
         
         view.addSubview(toEnter)
@@ -212,7 +220,15 @@ class LogInView: UINavigationController{
             }
         }
     };
-    
+    @objc func eyeChange(_ button: UIButton){
+        password.isSecureTextEntry = !password.isSecureTextEntry
+        if (password.isSecureTextEntry == true){
+            button.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
+        }
+        else{
+            button.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+        }
+    }
     
 }
 
