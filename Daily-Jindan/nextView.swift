@@ -14,7 +14,7 @@ class nextView: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        test.text = "testing"
+        test.text = "Congratulations!"
         view.addSubview(test)
         test.snp.makeConstraints { make in
             make.centerX.equalToSuperview()

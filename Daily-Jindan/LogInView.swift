@@ -17,6 +17,7 @@ class LogInView: UINavigationController{
     let bound = UIScreen.main.bounds
     let logo = UILabel()
     let userName = UITextField()
+    let userProfile = UIButton()
     let password = UITextField()
     let passwordBtn = UIButton()
     let toEnter = UIButton()
@@ -88,6 +89,14 @@ class LogInView: UINavigationController{
             make.width.equalTo(bound.width*0.8)
             make.height.equalTo(bound.height*0.07)
         }
+        view.addSubview(userProfile)
+        userProfile.setImage(UIImage(systemName: "person.circle"), for: .normal)
+        userProfile.backgroundColor = .white
+        userProfile.snp.makeConstraints { make in
+            make.left.equalTo(userName).offset(bound.width*0.01)
+            make.top.equalTo(userName).offset(bound.height*0.019)
+            make.width.height.equalTo(bound.width*0.07)
+        }
         
         password.backgroundColor = .white
         password.textColor = .black
@@ -117,7 +126,7 @@ class LogInView: UINavigationController{
         passwordBtn.addTarget(self, action: #selector(eyeChange), for: .touchUpInside)
         view.addSubview(passwordBtn)
         passwordBtn.snp.makeConstraints { make in
-            make.left.equalTo(password).offset(bound.height*0.01)
+            make.left.equalTo(password).offset(bound.width*0.01)
             make.top.equalTo(password).offset(bound.height*0.025)
             make.width.equalTo(bound.width*0.07)
             make.height.equalTo(bound.height*0.02)
