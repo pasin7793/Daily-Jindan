@@ -94,6 +94,7 @@ class LogInView: UINavigationController{
         password.autocapitalizationType = UITextAutocapitalizationType.none
         password.attributedPlaceholder = NSAttributedString(string: "비밀번호 입력", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
         password.borderStyle = .none
+        password.isSecureTextEntry = true
         password.layer.cornerRadius = 25
         password.clearButtonMode = .whileEditing
         password.layer.shadowColor = UIColor.black.cgColor
