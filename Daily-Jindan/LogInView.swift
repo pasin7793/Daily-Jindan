@@ -33,11 +33,11 @@ class LogInView: UINavigationController{
         
         
         
-        /*if Auth.auth().currentUser != nil {
+        if Auth.auth().currentUser != nil {
             userName.placeholder = "이미 로그인 된 상태입니다."
             password.placeholder = "이미 로그인 된 상태입니다."
             toEnter.setTitle("이미 로그인 된 상태입니다.", for: .normal)
-        }*/
+        }
         
         view.addSubview(mainView)
         let gradientLayer = CAGradientLayer()
@@ -59,7 +59,7 @@ class LogInView: UINavigationController{
         }
         
         
-        logo.text = "LogIn Test"
+        logo.text = "Daily Jindan"
         view.addSubview(logo)
         logo.textColor = .white
         logo.font = UIFont(name: "Helvetica-Bold", size: 42)
@@ -72,7 +72,7 @@ class LogInView: UINavigationController{
         userName.textColor = .black
         userName.keyboardType = .asciiCapable
         userName.autocapitalizationType = UITextAutocapitalizationType.none
-        userName.attributedPlaceholder = NSAttributedString(string: "이메일 입력", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
+        userName.attributedPlaceholder = NSAttributedString(string: "아이디 입력", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
         userName.borderStyle = .none
         userName.layer.cornerRadius = 25
         userName.clearButtonMode = .whileEditing
@@ -203,7 +203,7 @@ class LogInView: UINavigationController{
                         self.present(self.secondView, animated: true, completion: nil)
                     }
                     else if (self.password.text == ""){
-                        let alert = UIAlertController(title: "오류", message: "비밀번호를 입력해 주세요", preferredStyle: UIAlertController.Style.alert)
+                        let alert = UIAlertController(title: "오류", message: "비밀번호를 입력해 주세요.", preferredStyle: UIAlertController.Style.alert)
                         let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
                         alert.addAction(defaultAction)
                         self.present(alert, animated: false, completion: nil)
@@ -216,7 +216,7 @@ class LogInView: UINavigationController{
                     }
                     else{
                         print("login fail")
-                        let alert = UIAlertController(title: "오류", message: "비밀번호 또는 아이디를 다시 입력해주새요.", preferredStyle: UIAlertController.Style.alert)
+                        let alert = UIAlertController(title: "오류", message: "로그인에 실패하였습니다. 다시 시도해주시기바랍니다.", preferredStyle: UIAlertController.Style.alert)
                         let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
                         alert.addAction(defaultAction)
                         self.present(alert, animated: false, completion: nil)
