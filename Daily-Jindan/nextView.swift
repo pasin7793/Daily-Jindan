@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SimpleCheckbox
 
 class nextView: UIViewController{
     let test = UILabel()
@@ -14,7 +15,7 @@ class nextView: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        test.text = "Congratulations!"
+        test.text = "최형우"
         view.addSubview(test)
         test.snp.makeConstraints { make in
             make.centerX.equalToSuperview()

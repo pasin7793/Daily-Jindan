@@ -202,6 +202,12 @@ class LogInView: UINavigationController{
                         self.secondView.modalTransitionStyle = .crossDissolve
                         self.present(self.secondView, animated: true, completion: nil)
                     }
+                    else if (self.userName.text == "" && self.password.text == ""){
+                        let alert = UIAlertController(title: "오류", message: "아이디와 비밀번호를 입력해주세요.", preferredStyle: UIAlertController.Style.alert)
+                        let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
+                        alert.addAction(defaultAction)
+                        self.present(alert, animated: false, completion: nil)
+                    }
                     else if (self.password.text == ""){
                         let alert = UIAlertController(title: "오류", message: "비밀번호를 입력해 주세요.", preferredStyle: UIAlertController.Style.alert)
                         let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)

@@ -10,6 +10,7 @@ target 'Daily-Jindan' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Analytics'
+  pod 'SimpleCheckbox'
   # Pods for Daily-Jindan
 
 end
