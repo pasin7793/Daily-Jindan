@@ -65,6 +65,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C868CFA826FC6CAA005131A4 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C8CFE9CB26F35D1D00323741 /* BMJUA_otf.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		C868CFAA26FC7543005131A4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C868CFAB26FC7563005131A4 /* Auth */,
+				C8CFE9D126F4646D00323741 /* nextView.swift */,
+				C8CFE9D326F4E92000323741 /* ForgotPasswordView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C868CFAB26FC7563005131A4 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C8CFE9C926F318A900323741 /* LogInView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C868CFAC26FC7576005131A4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C8CFE9B526F23A8E00323741 /* AppDelegate.swift */,
+				C8CFE9B726F23A8E00323741 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		C8CFE9A926F23A8E00323741 = {
 			isa = PBXGroup;
 			children = (
@@ -86,12 +121,9 @@
 		C8CFE9B426F23A8E00323741 /* Daily-Jindan */ = {
 			isa = PBXGroup;
 			children = (
-				C8CFE9CB26F35D1D00323741 /* BMJUA_otf.otf */,
-				C8CFE9B526F23A8E00323741 /* AppDelegate.swift */,
-				C8CFE9B726F23A8E00323741 /* SceneDelegate.swift */,
-				C8CFE9C926F318A900323741 /* LogInView.swift */,
-				C8CFE9D326F4E92000323741 /* ForgotPasswordView.swift */,
-				C8CFE9D126F4646D00323741 /* nextView.swift */,
+				C868CFAC26FC7576005131A4 /* App */,
+				C868CFAA26FC7543005131A4 /* Controller */,
+				C868CFA826FC6CAA005131A4 /* Font */,
 				C8CFE9BE26F23A9000323741 /* Assets.xcassets */,
 				C8CFE9C026F23A9000323741 /* LaunchScreen.storyboard */,
 				C8CFE9C326F23A9000323741 /* Info.plist */,

@@ -31,13 +31,11 @@ class LogInView: UINavigationController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        if Auth.auth().currentUser != nil {
+        /*if Auth.auth().currentUser != nil {
             userName.placeholder = "이미 로그인 된 상태입니다."
             password.placeholder = "이미 로그인 된 상태입니다."
             toEnter.setTitle("이미 로그인 된 상태입니다.", for: .normal)
-        }
+        }*/
         
         view.addSubview(mainView)
         let gradientLayer = CAGradientLayer()
