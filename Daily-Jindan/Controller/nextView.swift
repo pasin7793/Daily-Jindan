@@ -34,6 +34,9 @@ class nextView: UIViewController {
     
     let no1 = UILabel()
     let yes1 = UILabel()
+    
+    let no2 = UILabel()
+    let yes2 = UILabel()
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +89,7 @@ class nextView: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(checkBox2Yes.snp.bottom).offset(bounds.height*0.08)
             make.width.equalTo(bounds.width*0.9)
-            make.height.equalTo(bounds.height*0.16)
+            make.height.equalTo(bounds.height*0.162)
         }
         ///
         checkBox1Yes.snp.makeConstraints { make in
@@ -140,13 +143,15 @@ class nextView: UIViewController {
             make.top.equalTo(no1.snp.bottom).offset(bounds.height*(-0.145))
             make.left.equalTo(checkBox2Yes.snp.right).offset(bounds.width*0.04)
         }
+        ///
     }
     func configureUI(){
-        sv.backgroundColor = .white
         
+        sv.backgroundColor = .white
         sv.translatesAutoresizingMaskIntoConstraints = false
         self.view = sv
         self.sv.contentSize = CGSize(width: bounds.width, height: bounds.height*1.5)
+        
         checkBox1Yes.borderStyle = .circle
         checkBox1Yes.checkmarkStyle = .circle
         checkBox1No.borderStyle = .circle
@@ -161,7 +166,7 @@ class nextView: UIViewController {
         infoView.text =
         "※ 이 설문지는 코로나-19 감염예방을 위하여 학생의 건강 상태를 확인하는 내용입니다.※ 설문에 성실하게 응답하여 주시기 바랍니다.※ 코로나19가 의심되는 경우 진단검사를 받아주세요."
         
-        infoView.backgroundColor = UIColor(red: 0.8784, green: 0.8784, blue: 0.8784, alpha: 1.0)
+        infoView.backgroundColor = UIColor(red: 0.9176, green: 0.9176, blue: 0.9176, alpha: 1.0)
 
         
         q1.font = UIFont(name: "Helvetica", size: 17)
@@ -191,6 +196,11 @@ class nextView: UIViewController {
         yes1.text = "예"
         no1.textColor = .gray
         yes1.textColor = .gray
+        
+        no2.text = "아니요"
+        yes2.text = "예"
+        no2.textColor = .gray
+        yes2.textColor = .gray
     }
     // MARK: - Actions
     @objc func tappedButton(){
