@@ -16,7 +16,7 @@ class nextView: UIViewController {
     
     let logoView = UITextView()
     
-    let infoView = UILabel()
+    let infoView = UITextView()
     
     let q1 = UITextView()
     let q2 = UITextView()
@@ -72,7 +72,7 @@ class nextView: UIViewController {
     }
     func setLayout(){
         logoView.snp.makeConstraints { make in
-            make.top.equalTo(bounds.height*0.1)
+            make.top.equalTo(bounds.height*0.04)
             make.width.equalToSuperview()
             make.height.equalTo(bounds.width*0.15)
         }
@@ -199,6 +199,8 @@ class nextView: UIViewController {
         logoView.font = UIFont(name: "Helvetica-Bold", size: 21)
         logoView.textColor = .white
         logoView.textContainerInset = UIEdgeInsets(top: 16, left: 17, bottom: 0, right: 0)
+        logoView.isSelectable = false
+        logoView.isEditable = false
         
         sv.backgroundColor = .white
         sv.translatesAutoresizingMaskIntoConstraints = false
@@ -221,11 +223,15 @@ class nextView: UIViewController {
         checkBox3No.checkmarkStyle = .circle
         
         infoView.textAlignment = .center
-        infoView.text =
-        "※ 이 설문지는 코로나-19 감염예방을 위하여 학생의 건강 상태를 확인하는 내용입니다.※ 설문에 성실하게 응답하여 주시기 바랍니다.※ 코로나19가 의심되는 경우 진단검사를 받아주세요."
-        
+        infoView.text = """
+        ※ 이 설문지는 코로나-19 감염예방을 위하여 학생의 건강 상태를 확인하는 내용입니다.
+        ※ 설문에 성실하게 응답하여 주시기 바랍니다.
+        ※ 코로나19가 의심되는 경우 진단검사를 받아주세요.
+        """
         infoView.backgroundColor = UIColor(red: 0.9176, green: 0.9176, blue: 0.9176, alpha: 1.0)
-
+        infoView.textContainerInset = UIEdgeInsets(top: 23, left: 5, bottom: 0, right: 0)
+        infoView.font = UIFont(name: "Helvetica", size: 16)
+        infoView.textAlignment = .left
         
         q1.font = UIFont(name: "Helvetica", size: 17)
         q1.backgroundColor = UIColor(red: 0.8863, green: 1, blue: 0.9686, alpha: 1.0)
@@ -262,7 +268,7 @@ class nextView: UIViewController {
         
         submitBtn.setTitle("제출 / Submit", for: .normal)
         submitBtn.setTitleColor(.white, for: .normal)
-        submitBtn.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
+        submitBtn.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 17)
         submitBtn.backgroundColor = UIColor(red: 0, green: 0.3647, blue: 1, alpha: 1.0)
     }
     // MARK: - Actions
