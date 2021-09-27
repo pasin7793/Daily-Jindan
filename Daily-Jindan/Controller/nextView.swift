@@ -14,6 +14,8 @@ class nextView: UIViewController {
     let bounds = UIScreen.main.bounds
     let sv = UIScrollView()
     
+    let logoView = UITextView()
+    
     let infoView = UILabel()
     
     let q1 = UITextView()
@@ -37,6 +39,8 @@ class nextView: UIViewController {
     
     let no2 = UILabel()
     let yes2 = UILabel()
+    
+    let submitBtn = UIButton()
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +51,7 @@ class nextView: UIViewController {
     // MARK: - Helpers
     func addsubView(){
         view.addSubview(sv)
+        sv.addSubview(logoView)
         sv.addSubview(infoView)
         sv.addSubview(checkBox1Yes)
         sv.addSubview(checkBox1No)
@@ -61,21 +66,29 @@ class nextView: UIViewController {
         sv.addSubview(yes)
         sv.addSubview(no1)
         sv.addSubview(yes1)
+        sv.addSubview(no2)
+        sv.addSubview(yes2)
+        sv.addSubview(submitBtn)
     }
     func setLayout(){
+        logoView.snp.makeConstraints { make in
+            make.top.equalTo(bounds.height*0.1)
+            make.width.equalToSuperview()
+            make.height.equalTo(bounds.width*0.15)
+        }
         sv.snp.makeConstraints { make in
             make.left.right.top.bottom.width.height.equalToSuperview()
 
         }
         infoView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(bounds.height*0.2)
+            make.top.equalTo(bounds.height*0.26)
             make.width.equalTo(bounds.width*0.9)
             make.height.equalTo(bounds.height*0.14)
         }
         q1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(bounds.height*0.35)
+            make.top.equalTo(bounds.height*0.42)
             make.width.equalTo(bounds.width*0.9)
             make.height.equalTo(bounds.height*0.14)
         }
@@ -118,6 +131,19 @@ class nextView: UIViewController {
             make.left.equalTo(bounds.width*0.1)
         }
         ///
+        checkBox3Yes.snp.makeConstraints { make in
+            make.height.equalTo(bounds.height*0.04)
+            make.width.equalTo(bounds.height*0.04)
+            make.top.equalTo(q3.snp.bottom).offset(bounds.height*0.02)
+            make.left.equalTo(bounds.width*0.1)
+        }
+        ///
+        checkBox3No.snp.makeConstraints { make in
+            make.height.equalTo(bounds.height*0.04)
+            make.width.equalTo(bounds.height*0.04)
+            make.top.equalTo(checkBox3Yes.snp.bottom).offset(bounds.height*0.015)
+            make.left.equalTo(bounds.width*0.1)
+        }
         no.snp.makeConstraints { make in
             make.height.equalTo(bounds.height*0.2)
             make.width.equalTo(bounds.width*0.25)
@@ -144,13 +170,40 @@ class nextView: UIViewController {
             make.left.equalTo(checkBox2Yes.snp.right).offset(bounds.width*0.04)
         }
         ///
+        no2.snp.makeConstraints { make in
+            make.height.equalTo(bounds.height*0.2)
+            make.width.equalTo(bounds.width*0.25)
+            make.top.equalTo(checkBox3Yes.snp.bottom).offset(bounds.height*(-0.12))
+            make.left.equalTo(checkBox3Yes.snp.right).offset(bounds.width*0.04)
+        }
+        yes2.snp.makeConstraints { make in
+            make.height.equalTo(bounds.height*0.2)
+            make.width.equalTo(bounds.width*0.6)
+            make.top.equalTo(no2.snp.bottom).offset(bounds.height*(-0.145))
+            make.left.equalTo(checkBox3Yes.snp.right).offset(bounds.width*0.04)
+        }
+        ///
+        submitBtn.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(bounds.width*0.9)
+            make.height.equalTo(bounds.height*0.07)
+            make.top.equalTo(checkBox3No.snp.bottom).offset(bounds.height*0.03)
+            
+        }
     }
     func configureUI(){
+        
+        logoView.backgroundColor = UIColor(red: 0.5451, green: 0.3686, blue: 0.9294, alpha: 1.0)
+        logoView.text = "건강상태 자가진단"
+        //logoView.textAlignment = .natural
+        logoView.font = UIFont(name: "Helvetica-Bold", size: 21)
+        logoView.textColor = .white
+        logoView.textContainerInset = UIEdgeInsets(top: 16, left: 17, bottom: 0, right: 0)
         
         sv.backgroundColor = .white
         sv.translatesAutoresizingMaskIntoConstraints = false
         self.view = sv
-        self.sv.contentSize = CGSize(width: bounds.width, height: bounds.height*1.5)
+        self.sv.contentSize = CGSize(width: bounds.width, height: bounds.height*1.4)
         
         checkBox1Yes.borderStyle = .circle
         checkBox1Yes.checkmarkStyle = .circle
@@ -161,6 +214,11 @@ class nextView: UIViewController {
         checkBox2Yes.checkmarkStyle = .circle
         checkBox2No.borderStyle = .circle
         checkBox2No.checkmarkStyle = .circle
+        
+        checkBox3Yes.borderStyle = .circle
+        checkBox3Yes.checkmarkStyle = .circle
+        checkBox3No.borderStyle = .circle
+        checkBox3No.checkmarkStyle = .circle
         
         infoView.textAlignment = .center
         infoView.text =
@@ -201,9 +259,16 @@ class nextView: UIViewController {
         yes2.text = "예"
         no2.textColor = .gray
         yes2.textColor = .gray
+        
+        submitBtn.setTitle("제출 / Submit", for: .normal)
+        submitBtn.setTitleColor(.white, for: .normal)
+        submitBtn.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
+        submitBtn.backgroundColor = UIColor(red: 0, green: 0.3647, blue: 1, alpha: 1.0)
     }
     // MARK: - Actions
     @objc func tappedButton(){
         
     }
+    
 }
+
