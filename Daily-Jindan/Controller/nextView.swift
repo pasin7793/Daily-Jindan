@@ -9,10 +9,12 @@ import UIKit
 import SnapKit
 import SimpleCheckbox
 
-class nextView: UIViewController{
+class nextView: UIViewController {
     // MARK: - Properties
     let bounds = UIScreen.main.bounds
     let sv = UIScrollView()
+    
+    let infoView = UILabel()
     
     let q1 = UITextView()
     let q2 = UITextView()
@@ -41,21 +43,33 @@ class nextView: UIViewController{
     }
     // MARK: - Helpers
     func addsubView(){
-        view.addSubview(checkBox1Yes)
-        view.addSubview(checkBox1No)
-        view.addSubview(checkBox2Yes)
-        view.addSubview(checkBox2No)
-        view.addSubview(checkBox3Yes)
-        view.addSubview(checkBox3No)
-        view.addSubview(q1)
-        view.addSubview(q2)
-        view.addSubview(q3)
-        view.addSubview(no)
-        view.addSubview(yes)
-        view.addSubview(yes1)
-        view.addSubview(no1)
+        view.addSubview(sv)
+        sv.addSubview(infoView)
+        sv.addSubview(checkBox1Yes)
+        sv.addSubview(checkBox1No)
+        sv.addSubview(checkBox2Yes)
+        sv.addSubview(checkBox2No)
+        sv.addSubview(checkBox3Yes)
+        sv.addSubview(checkBox3No)
+        sv.addSubview(q1)
+        sv.addSubview(q2)
+        sv.addSubview(q3)
+        sv.addSubview(no)
+        sv.addSubview(yes)
+        sv.addSubview(no1)
+        sv.addSubview(yes1)
     }
     func setLayout(){
+        sv.snp.makeConstraints { make in
+            make.left.right.top.bottom.width.height.equalToSuperview()
+
+        }
+        infoView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(bounds.height*0.2)
+            make.width.equalTo(bounds.width*0.9)
+            make.height.equalTo(bounds.height*0.14)
+        }
         q1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(bounds.height*0.35)
@@ -67,6 +81,12 @@ class nextView: UIViewController{
             make.top.equalTo(checkBox1Yes.snp.bottom).offset(bounds.height*0.08)
             make.width.equalTo(bounds.width*0.9)
             make.height.equalTo(bounds.height*0.12)
+        }
+        q3.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(checkBox2Yes.snp.bottom).offset(bounds.height*0.08)
+            make.width.equalTo(bounds.width*0.9)
+            make.height.equalTo(bounds.height*0.16)
         }
         ///
         checkBox1Yes.snp.makeConstraints { make in
@@ -122,12 +142,11 @@ class nextView: UIViewController{
         }
     }
     func configureUI(){
-        view.backgroundColor = .white
+        sv.backgroundColor = .white
         
         sv.translatesAutoresizingMaskIntoConstraints = false
-        sv.backgroundColor = .white
-        sv.isPagingEnabled = true
-        
+        self.view = sv
+        self.sv.contentSize = CGSize(width: bounds.width, height: bounds.height*1.5)
         checkBox1Yes.borderStyle = .circle
         checkBox1Yes.checkmarkStyle = .circle
         checkBox1No.borderStyle = .circle
@@ -137,6 +156,13 @@ class nextView: UIViewController{
         checkBox2Yes.checkmarkStyle = .circle
         checkBox2No.borderStyle = .circle
         checkBox2No.checkmarkStyle = .circle
+        
+        infoView.textAlignment = .center
+        infoView.text =
+        "※ 이 설문지는 코로나-19 감염예방을 위하여 학생의 건강 상태를 확인하는 내용입니다.※ 설문에 성실하게 응답하여 주시기 바랍니다.※ 코로나19가 의심되는 경우 진단검사를 받아주세요."
+        
+        infoView.backgroundColor = UIColor(red: 0.8784, green: 0.8784, blue: 0.8784, alpha: 1.0)
+
         
         q1.font = UIFont(name: "Helvetica", size: 17)
         q1.backgroundColor = UIColor(red: 0.8863, green: 1, blue: 0.9686, alpha: 1.0)
@@ -149,6 +175,12 @@ class nextView: UIViewController{
         q2.text = "2. 학생 본인 또는 동거인이 코로나19 진단검사를 받고 그 결과를 기다리고 있나요?※ ① 직업특성, 또는 ② 대회참여 등 선제적 예방 목적의 진단검사인 경우는 ‘아니오’ 선택"
         q2.isSelectable = false
         q2.isEditable = false
+        
+        q3.font = UIFont(name: "Helvetica", size: 17)
+        q3.backgroundColor = UIColor(red: 0.8863, green: 1, blue: 0.9686, alpha: 1.0)
+        q3.text = "3. 학생 본인 또는 동거인이 방역당국에 의해 현재 자가격리가 이루어지고 있나요?※ 동거인이 자가격리중인 경우, ① 매 등교 희망일로부터 2일 이내 진단검사 결과가 음성인 경우 또는 ② 격리 통지를 받은 ‘즉시’ 자가격리된 동거인과 접촉이 없었던 경우는 ‘아니오’ 선택"
+        q3.isSelectable = false
+        q3.isEditable = false
         
         no.text = "아니요"
         yes.text = "예"
@@ -165,4 +197,3 @@ class nextView: UIViewController{
         
     }
 }
-
