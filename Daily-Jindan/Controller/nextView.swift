@@ -232,6 +232,8 @@ class nextView: UIViewController {
         infoView.textContainerInset = UIEdgeInsets(top: 23, left: 5, bottom: 0, right: 0)
         infoView.font = UIFont(name: "Helvetica", size: 16)
         infoView.textAlignment = .left
+        infoView.isEditable = false
+        infoView.isSelectable = false
         
         q1.font = UIFont(name: "Helvetica", size: 17)
         q1.backgroundColor = UIColor(red: 0.8863, green: 1, blue: 0.9686, alpha: 1.0)
@@ -273,7 +275,7 @@ class nextView: UIViewController {
     }
     // MARK: - Actions
     @objc func tappedButton(){
-        
+        print("Button Tapped")
     }
     
 }
