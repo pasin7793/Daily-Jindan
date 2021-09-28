@@ -202,6 +202,7 @@ class nextView: UIViewController {
         logoView.isSelectable = false
         logoView.isEditable = false
         
+        
         sv.backgroundColor = .white
         sv.translatesAutoresizingMaskIntoConstraints = false
         self.view = sv
@@ -221,6 +222,8 @@ class nextView: UIViewController {
         checkBox3Yes.checkmarkStyle = .circle
         checkBox3No.borderStyle = .circle
         checkBox3No.checkmarkStyle = .circle
+        
+        checkBox1Yes.addTarget(self, action: #selector(checkBox1YesBtn), for: .touchUpInside)
         
         infoView.textAlignment = .center
         infoView.text = """
@@ -283,8 +286,14 @@ class nextView: UIViewController {
         submitBtn.backgroundColor = UIColor(red: 0, green: 0.3647, blue: 1, alpha: 1.0)
     }
     // MARK: - Actions
-    @objc func tappedButton(){
-        print("Button Tapped")
+    @objc func checkBox1YesBtn(sender: Checkbox){
+        print("checkbox value change: \(sender.isChecked)")
+    }
+    @objc func noBtnTapped(){
+        print("No Button Tapped")
+    }
+    @objc func yesBtnTapped(){
+        print("Yes Button Tapped")
     }
     
 }
