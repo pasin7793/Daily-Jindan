@@ -100,7 +100,7 @@ class nextView: UIViewController {
         }
         q3.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(checkBox2Yes.snp.bottom).offset(bounds.height*0.08)
+            make.top.equalTo(checkBox2No.snp.bottom).offset(bounds.height*0.08)
             make.width.equalTo(bounds.width*0.9)
             make.height.equalTo(bounds.height*0.162)
         }
@@ -118,16 +118,16 @@ class nextView: UIViewController {
             make.left.equalTo(bounds.width*0.1)
         }
         ///
-        checkBox2Yes.snp.makeConstraints { make in
+        checkBox2No.snp.makeConstraints { make in
             make.height.equalTo(bounds.height*0.04)
             make.width.equalTo(bounds.height*0.04)
             make.top.equalTo(q2.snp.bottom).offset(bounds.height*0.02)
             make.left.equalTo(bounds.width*0.1)
         }
-        checkBox2No.snp.makeConstraints { make in
+        checkBox2Yes.snp.makeConstraints { make in
             make.height.equalTo(bounds.height*0.04)
             make.width.equalTo(bounds.height*0.04)
-            make.top.equalTo(checkBox2Yes.snp.bottom).offset(bounds.height*0.015)
+            make.top.equalTo(checkBox2No.snp.bottom).offset(bounds.height*0.015)
             make.left.equalTo(bounds.width*0.1)
         }
         ///
@@ -160,14 +160,14 @@ class nextView: UIViewController {
         no1.snp.makeConstraints { make in
             make.height.equalTo(bounds.height*0.2)
             make.width.equalTo(bounds.width*0.25)
-            make.top.equalTo(checkBox2Yes.snp.bottom).offset(bounds.height*(-0.12))
-            make.left.equalTo(checkBox2Yes.snp.right).offset(bounds.width*0.04)
+            make.top.equalTo(checkBox2No.snp.bottom).offset(bounds.height*(-0.12))
+            make.left.equalTo(checkBox2No.snp.right).offset(bounds.width*0.04)
         }
         yes1.snp.makeConstraints { make in
             make.height.equalTo(bounds.height*0.2)
             make.width.equalTo(bounds.width*0.6)
             make.top.equalTo(no1.snp.bottom).offset(bounds.height*(-0.145))
-            make.left.equalTo(checkBox2Yes.snp.right).offset(bounds.width*0.04)
+            make.left.equalTo(checkBox2No.snp.right).offset(bounds.width*0.04)
         }
         ///
         no2.snp.makeConstraints { make in
@@ -310,10 +310,17 @@ class nextView: UIViewController {
     }
     @objc func checkBox2NoBtn(sender: Checkbox){
         print("Q2 No Tapped")
+        checkBox2No.isChecked = true
+        if (checkBox2Yes.isChecked == true){
+            checkBox2Yes.isChecked = false
+        }
     }
     @objc func checkBox2YesBtn(sender: Checkbox){
         print("Q2 Yes Tapped")
-        
+        checkBox2Yes.isChecked = true
+        if (checkBox2No.isChecked == true){
+            checkBox2No.isChecked = false
+        }
     }
 }
 
