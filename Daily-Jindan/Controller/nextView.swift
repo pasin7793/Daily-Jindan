@@ -224,8 +224,14 @@ class nextView: UIViewController {
         checkBox3No.checkmarkStyle = .circle
         
         checkBox1Yes.addTarget(self, action: #selector(checkBox1YesBtn), for: .valueChanged)
-        checkBox1Yes.valueChanged = {ele in
-        }
+        checkBox1Yes.valueChanged = {ele in}
+        checkBox1No.addTarget(self, action: #selector(checkBox1NoBtn), for: .valueChanged)
+        checkBox1No.valueChanged = {ele in}
+        
+        checkBox2Yes.addTarget(self, action: #selector(checkBox2YesBtn), for: .valueChanged)
+        checkBox2Yes.valueChanged = {ele in}
+        checkBox2No.addTarget(self, action: #selector(checkBox2NoBtn), for: .valueChanged)
+        checkBox2No.valueChanged = {ele in}
         
         infoView.textAlignment = .center
         infoView.text = """
@@ -288,16 +294,26 @@ class nextView: UIViewController {
         submitBtn.backgroundColor = UIColor(red: 0, green: 0.3647, blue: 1, alpha: 1.0)
     }
     // MARK: - Actions
+    @objc func checkBox1NoBtn(sender: Checkbox){
+        print("Q1 No Tapped")
+        checkBox1No.isChecked = true
+        if (checkBox1Yes.isChecked == true){
+            checkBox1Yes.isChecked = false
+        }
+    }
     @objc func checkBox1YesBtn(sender: Checkbox){
-        print("checkbox value change: \(sender.isChecked)")
+        print("Q1 Yes Tapped")
         checkBox1Yes.isChecked = true
+        if (checkBox1No.isChecked == true){
+            checkBox1No.isChecked = false
+        }
     }
-    @objc func noBtnTapped(){
-        print("No Button Tapped")
+    @objc func checkBox2NoBtn(sender: Checkbox){
+        print("Q2 No Tapped")
     }
-    @objc func yesBtnTapped(){
-        print("Yes Button Tapped")
+    @objc func checkBox2YesBtn(sender: Checkbox){
+        print("Q2 Yes Tapped")
+        
     }
-    
 }
 
