@@ -90,7 +90,7 @@ class nextView: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(bounds.height*0.42)
             make.width.equalTo(bounds.width*0.9)
-            make.height.equalTo(bounds.height*0.14)
+            make.height.equalTo(bounds.height*0.16)
         }
         q2.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -237,19 +237,28 @@ class nextView: UIViewController {
         
         q1.font = UIFont(name: "Helvetica", size: 17)
         q1.backgroundColor = UIColor(red: 0.8863, green: 1, blue: 0.9686, alpha: 1.0)
-        q1.text = "1. 학생 본인이 코로나19가 의심되는 아래의 임상증상이 있나요? (주요 임상증상) 발열 (37.5℃ 이상), 기침, 호흡곤란, 오한, 근육통, 두통, 인후통, 후각·미각 소실 (단, 코로나19와 관계없이 평소의 기저질환으로 인한 증상인 경우는 ‘아니오’ 선택)"
+        q1.text = """
+        1. 학생 본인이 코로나19가 의심되는 아래의 임상증상이 있나요?
+        (주요 임상증상) 발열 (37.5℃ 이상), 기침, 호흡곤란, 오한, 근육통, 두통, 인후통, 후각·미각 소실 (단, 코로나19와 관계없이 평소의 기저질환으로 인한 증상인 경우는 ‘아니오’ 선택)
+        """
         q1.isSelectable = false
         q1.isEditable = false
         
         q2.font = UIFont(name: "Helvetica", size: 17)
         q2.backgroundColor = UIColor(red: 0.8863, green: 1, blue: 0.9686, alpha: 1.0)
-        q2.text = "2. 학생 본인 또는 동거인이 코로나19 진단검사를 받고 그 결과를 기다리고 있나요?※ ① 직업특성, 또는 ② 대회참여 등 선제적 예방 목적의 진단검사인 경우는 ‘아니오’ 선택"
+        q2.text = """
+        2. 학생 본인 또는 동거인이 코로나19 진단검사를 받고 그 결과를 기다리고 있나요?
+        ※ ① 직업특성, 또는 ② 대회참여 등 선제적 예방 목적의 진단검사인 경우는 ‘아니오’ 선택
+        """
         q2.isSelectable = false
         q2.isEditable = false
         
         q3.font = UIFont(name: "Helvetica", size: 17)
         q3.backgroundColor = UIColor(red: 0.8863, green: 1, blue: 0.9686, alpha: 1.0)
-        q3.text = "3. 학생 본인 또는 동거인이 방역당국에 의해 현재 자가격리가 이루어지고 있나요?※ 동거인이 자가격리중인 경우, ① 매 등교 희망일로부터 2일 이내 진단검사 결과가 음성인 경우 또는 ② 격리 통지를 받은 ‘즉시’ 자가격리된 동거인과 접촉이 없었던 경우는 ‘아니오’ 선택"
+        q3.text = """
+        3. 학생 본인 또는 동거인이 방역당국에 의해 현재 자가격리가 이루어지고 있나요?
+        ※ 동거인이 자가격리중인 경우, ① 매 등교 희망일로부터 2일 이내 진단검사 결과가 음성인 경우 또는 ② 격리 통지를 받은 ‘즉시’ 자가격리된 동거인과 접촉이 없었던 경우는 ‘아니오’ 선택
+        """
         q3.isSelectable = false
         q3.isEditable = false
         
