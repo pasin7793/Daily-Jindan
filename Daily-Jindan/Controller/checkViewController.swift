@@ -9,9 +9,10 @@ import UIKit
 import SnapKit
 import SimpleCheckbox
 
-class checkViewController: UIViewController {
+class CheckViewController: UIViewController {
     // MARK: - Properties
-    let resultView = resultViewController()
+    let resultView = ResultViewController()
+    let coronaView = CoronaViewController()
     let bounds = UIScreen.main.bounds
     let sv = UIScrollView()
     
@@ -345,7 +346,7 @@ class checkViewController: UIViewController {
         }
     }
     @objc func submitTapped(){
-        print("submit Button Tapped")
+        print("Submit Button Tapped")
         if(checkBox1No.isChecked == false && checkBox1Yes.isChecked == false){
             let alert = UIAlertController(title: "오류", message: "1번 설문내용을 입력해주세요", preferredStyle: UIAlertController.Style.alert)
             let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
@@ -365,9 +366,17 @@ class checkViewController: UIViewController {
             self.present(alert, animated: false, completion: nil)
         }
         
-        else if (checkBox1No.isChecked == true || checkBox1Yes.isChecked == true){
+        /*else if (checkBox1No.isChecked == true || checkBox1Yes.isChecked == true){
             resultView.modalPresentationStyle = .fullScreen
             self.present(self.resultView, animated: true, completion: nil)
+        }*/
+        else if (checkBox1No.isChecked == true && checkBox2No.isChecked == true && checkBox3No.isChecked == true){
+            resultView.modalPresentationStyle = .fullScreen
+            self.present(self.resultView, animated: true, completion: nil)
+        }
+        else{
+            coronaView.modalPresentationStyle = .fullScreen
+            self.present(self.coronaView, animated: true, completion: nil)
         }
         
     }

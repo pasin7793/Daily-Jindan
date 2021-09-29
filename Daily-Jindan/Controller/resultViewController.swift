@@ -8,12 +8,10 @@
 import UIKit
 import SnapKit
 
-class resultViewController: UIViewController{
+class ResultViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        self.modalPresentationStyle = .fullScreen
-        
     }
 }

@@ -23,7 +23,7 @@ class LogInViewController: UINavigationController{
     let toEnter = UIButton()
     let forgotPassword = UIButton()
     
-    let secondView = checkViewController()
+    let secondView = CheckViewController()
     let forgotView = ForgotPasswordView()
     
     var ref: DatabaseReference!
