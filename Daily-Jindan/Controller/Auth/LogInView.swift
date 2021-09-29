@@ -196,8 +196,7 @@ class LogInView: UINavigationController{
         Auth.auth().signIn(withEmail: userName.text!, password: password.text!) { (user, error) in
                     if user != nil{
                         print("login success")
-                        self.secondView.modalPresentationStyle = .fullScreen
-                        self.secondView.modalTransitionStyle = .crossDissolve
+                        
                         self.present(self.secondView, animated: true, completion: nil)
                     }
                     else if (self.userName.text == "" && self.password.text == ""){

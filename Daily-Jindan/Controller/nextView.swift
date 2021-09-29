@@ -238,6 +238,8 @@ class nextView: UIViewController {
         checkBox3No.addTarget(self, action: #selector(checkBox3NoBtn), for: .valueChanged)
         checkBox3No.valueChanged = {ele in}
         
+        submitBtn.addTarget(self, action: #selector(submitTapped), for: .touchUpInside)
+        
         infoView.textAlignment = .center
         infoView.text = """
         ※ 이 설문지는 코로나-19 감염예방을 위하여 학생의 건강 상태를 확인하는 내용입니다.
@@ -340,6 +342,9 @@ class nextView: UIViewController {
         if (checkBox3No.isChecked == true){
             checkBox3No.isChecked = false
         }
+    }
+    @objc func submitTapped(){
+        print("submit Button Tapped")
     }
 }
 
