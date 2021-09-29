@@ -358,6 +358,12 @@ class checkViewController: UIViewController {
             alert.addAction(defaultAction)
             self.present(alert, animated: false, completion: nil)
         }
+        else if (checkBox3Yes.isChecked == false && checkBox3No.isChecked == false){
+            let alert = UIAlertController(title: "오류", message: "3번 설문내용을 입력해주세요", preferredStyle: UIAlertController.Style.alert)
+            let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
+            alert.addAction(defaultAction)
+            self.present(alert, animated: false, completion: nil)
+        }
         
         else if (checkBox1No.isChecked == true || checkBox1Yes.isChecked == true){
             resultView.modalPresentationStyle = .fullScreen
