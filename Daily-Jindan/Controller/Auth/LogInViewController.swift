@@ -11,7 +11,7 @@ import Then
 import Firebase
 import FirebaseDatabase
 
-class LogInView: UINavigationController{
+class LogInViewController: UINavigationController{
     
     let mainView = UIView()
     let bound = UIScreen.main.bounds
@@ -23,7 +23,7 @@ class LogInView: UINavigationController{
     let toEnter = UIButton()
     let forgotPassword = UIButton()
     
-    let secondView = nextView()
+    let secondView = checkViewController()
     let forgotView = ForgotPasswordView()
     
     var ref: DatabaseReference!

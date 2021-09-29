@@ -9,8 +9,9 @@ import UIKit
 import SnapKit
 import SimpleCheckbox
 
-class nextView: UIViewController {
+class checkViewController: UIViewController {
     // MARK: - Properties
+    let resultView = resultViewController()
     let bounds = UIScreen.main.bounds
     let sv = UIScrollView()
     
@@ -345,6 +346,24 @@ class nextView: UIViewController {
     }
     @objc func submitTapped(){
         print("submit Button Tapped")
+        if(checkBox1No.isChecked == false && checkBox1Yes.isChecked == false){
+            let alert = UIAlertController(title: "오류", message: "1번 설문내용을 입력해주세요", preferredStyle: UIAlertController.Style.alert)
+            let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
+            alert.addAction(defaultAction)
+            self.present(alert, animated: false, completion: nil)
+        }
+        else if (checkBox2Yes.isChecked == false && checkBox2No.isChecked == false){
+            let alert = UIAlertController(title: "오류", message: "2번 설문내용을 입력해주세요", preferredStyle: UIAlertController.Style.alert)
+            let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
+            alert.addAction(defaultAction)
+            self.present(alert, animated: false, completion: nil)
+        }
+        
+        else if (checkBox1No.isChecked == true || checkBox1Yes.isChecked == true){
+            resultView.modalPresentationStyle = .fullScreen
+            self.present(self.resultView, animated: true, completion: nil)
+        }
+        
     }
 }
 
