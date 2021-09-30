@@ -21,9 +21,19 @@ class ResultViewController: UIViewController{
         df.dateFormat = "(yyyy-MM-dd) 자가진단 참여를 완료하였습니다."
         return df
     }()
+    private let noCoronaView = UITextView().then {
+        $0.backgroundColor = UIColor(red: 0.7569, green: 0.8588, blue: 1, alpha: 1.0)
+        $0.isSelectable = false
+        $0.isEditable = false
+        $0.font = UIFont(name: "Helvetica-Bold", size: 14)
+        $0.textColor = UIColor.gray
+        $0.textContainerInset = UIEdgeInsets(top: 19, left: 10, bottom: 0, right: 0)
+        $0.textAlignment = .left
+        $0.text = "※ 코로나19 예방을 위한 자가진단 설문결과 의심 증상에 해당되는 항목이 없어 등교가 가능함을 안내드립니다."
+    }
     private let infoView = UILabel().then {
         //$0.text = "자가진단 참여를 완료하였습니다."
-        $0.font = UIFont(name: "Helvetica", size: 17)
+        $0.font = UIFont(name: "Helvetica", size: 19)
         $0.textAlignment = .center
         $0.textColor = UIColor.gray
     }
@@ -48,6 +58,7 @@ class ResultViewController: UIViewController{
         view.addSubview(infoView)
         view.addSubview(logoView)
         view.addSubview(checkedLogo)
+        view.addSubview(noCoronaView)
     }
     func setLayout(){
         logoView.snp.makeConstraints { make in
@@ -59,7 +70,7 @@ class ResultViewController: UIViewController{
             make.centerX.equalToSuperview()
             //make.top.equalTo(bounds.height*0.26)
             make.top.equalTo(logoView.snp.bottom).offset(bounds.height*0.1)
-            make.width.equalTo(bounds.width*0.9)
+            make.width.equalTo(bounds.width*1.2)
             make.height.equalTo(bounds.height*0.04)
         }
         checkedLogo.snp.makeConstraints { make in
@@ -67,7 +78,12 @@ class ResultViewController: UIViewController{
             make.top.equalTo(infoView.snp.bottom).offset(bounds.height*0.15)
             make.width.equalTo(bounds.width*0.32)
             make.height.equalTo(bounds.height*0.1)
-
+        }
+        noCoronaView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(checkedLogo.snp.bottom).offset(bounds.height*0.15)
+            make.width.equalTo(bounds.width*0.87)
+            make.height.equalTo(bounds.height*0.09)
         }
     }
     func configureUI(){
