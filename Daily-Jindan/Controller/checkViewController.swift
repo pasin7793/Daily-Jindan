@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import SimpleCheckbox
 
-class CheckViewController: UIViewController {
+class CheckViewController: UINavigationController {
     // MARK: - Properties
     let resultView = ResultViewController()
     let coronaView = CoronaViewController()
@@ -194,7 +194,6 @@ class CheckViewController: UIViewController {
         }
     }
     func configureUI(){
-        
         logoView.backgroundColor = UIColor(red: 0.5451, green: 0.3686, blue: 0.9294, alpha: 1.0)
         logoView.text = "건강상태 자가진단"
         //logoView.textAlignment = .natural

@@ -11,7 +11,7 @@ import Then
 import Firebase
 import FirebaseDatabase
 
-class LogInViewController: UINavigationController{
+class LogInViewController: UIViewController{
     
     let mainView = UIView()
     let bound = UIScreen.main.bounds
@@ -30,7 +30,6 @@ class LogInViewController: UINavigationController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         /*if Auth.auth().currentUser != nil {
             userName.placeholder = "이미 로그인 된 상태입니다."
             password.placeholder = "이미 로그인 된 상태입니다."
@@ -198,6 +197,7 @@ class LogInViewController: UINavigationController{
                         print("login success")
                         
                         self.present(self.secondView, animated: true, completion: nil)
+                        //self.navigationController?.pushViewController(CheckViewController(), animated: true)
                     }
                     else if (self.userName.text == "" && self.password.text == ""){
                         let alert = UIAlertController(title: "오류", message: "아이디와 비밀번호를 입력해주세요.", preferredStyle: UIAlertController.Style.alert)
@@ -268,4 +268,5 @@ extension UITextField {
             self.leftView = leftimage
             self.leftViewMode = .always
         }
+    
 }
