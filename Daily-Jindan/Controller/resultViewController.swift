@@ -14,13 +14,11 @@ class ResultViewController: UIViewController{
     //MARK: -Properties
     let bounds = UIScreen.main.bounds
     let now = Date()
-    let date: DateFormatter = {
-        let df = DateFormatter()
-        df.locale = Locale(identifier: "ko_KR")
-        df.timeZone = TimeZone(abbreviation: "KST")
-        df.dateFormat = "(yyyy-MM-dd) 자가진단 참여를 완료하였습니다."
-        return df
-    }()
+    let date = DateFormatter().then {
+        $0.locale = Locale(identifier: "ko_KR")
+        $0.timeZone = TimeZone(abbreviation: "KST")
+        $0.dateFormat = "(yyyy-MM-dd) 자가진단 참여를 완료하였습니다."
+    }
     private let noCoronaView = UITextView().then {
         $0.backgroundColor = UIColor(red: 0.7569, green: 0.8588, blue: 1, alpha: 1.0)
         $0.isSelectable = false
@@ -96,3 +94,4 @@ class ResultViewController: UIViewController{
     //MARK: Actions
     
 }
+    
