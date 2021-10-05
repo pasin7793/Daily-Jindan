@@ -371,11 +371,11 @@ class CheckViewController: UINavigationController {
         }*/
         else if (checkBox1No.isChecked == true && checkBox2No.isChecked == true && checkBox3No.isChecked == true){
             resultView.modalPresentationStyle = .fullScreen
-            self.present(self.resultView, animated: true, completion: nil)
+            self.present(self.resultView, animated: false, completion: nil)
         }
         else{
             coronaView.modalPresentationStyle = .fullScreen
-            self.present(self.coronaView, animated: true, completion: nil)
+            self.present(self.coronaView, animated: false, completion: nil)
         }
         
     }
