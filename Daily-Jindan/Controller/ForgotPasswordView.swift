@@ -34,6 +34,7 @@ class ForgotPasswordView: UINavigationController{
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 17)
         $0.backgroundColor = UIColor(red: 0, green: 0.3647, blue: 1, alpha: 1.0)
+        $0.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
     private let logo = UILabel().then{
         $0.text = "비밀번호 찾기"
@@ -74,4 +75,7 @@ class ForgotPasswordView: UINavigationController{
         view.backgroundColor = .white
     }
     //MARK: -Actions
+    @objc func buttonTapped(_ button: UIButton){
+        print("button Tapped")
+    }
 }
